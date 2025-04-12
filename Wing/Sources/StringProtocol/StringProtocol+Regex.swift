@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Checks if the string matches a given regular expression.
   ///
   /// - Parameter regex: The regular expression pattern to match against.
@@ -34,9 +34,9 @@ extension String {
   /// ```
   public func matchingStrings(regex: String) -> [String] {
     guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return [] }
-    let nsString = self as NSString
+    let nsString = String(self) as NSString
     let results = regex.matches(
-      in: self, options: [], range: NSRange(location: 0, length: nsString.length))
+      in: String(self), options: [], range: NSRange(location: 0, length: nsString.length))
     return results.map { nsString.substring(with: $0.range) }
   }
 
@@ -53,10 +53,10 @@ extension String {
   /// print(str.replacingOccurrences(ofRegex: numberRegex, with: "***")) // Output: "Hello *** World ***"
   /// ```
   public func replacingOccurrences(ofRegex regex: String, with replacement: String) -> String {
-    guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return self }
-    let nsString = self as NSString
+    guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return String(self) }
+    let nsString = String(self) as NSString
     let range = NSRange(location: 0, length: nsString.length)
     return regex.stringByReplacingMatches(
-      in: self, options: [], range: range, withTemplate: replacement)
+      in: String(self), options: [], range: range, withTemplate: replacement)
   }
 }

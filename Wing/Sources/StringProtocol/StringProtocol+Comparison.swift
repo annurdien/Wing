@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Checks if the string is case-insensitively equal to another string.
   ///
   /// Example:

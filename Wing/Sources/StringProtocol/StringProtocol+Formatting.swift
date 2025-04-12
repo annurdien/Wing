@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Formats the string as a currency string using the specified locale.
   ///
   /// Example:

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Converts the string to an `Int`.
   ///
   /// Example:
@@ -82,7 +82,7 @@ extension String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
     dateFormatter.locale = locale
-    return dateFormatter.date(from: self)
+    return dateFormatter.date(from: String(self))
   }
 
   /// Converts the string to `Data` using UTF-8 encoding.
@@ -137,7 +137,7 @@ extension String {
   /// ```
   public func toURL() -> URL? {
     guard isValidURL else { return nil }
-    return URL(string: self)
+    return URL(string: String(self))
   }
 
   /// Converts the string to `Data` using a specified encoding.

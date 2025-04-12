@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Checks if the string is a valid email address.
   ///
   /// Example:
@@ -39,7 +39,7 @@ extension String {
     guard !self.isEmpty else { return false }
 
     // Try to create a URL from the string
-    guard let url = URL(string: self) else { return false }
+    guard let url = URL(string: String(self)) else { return false }
 
     // Verify the URL has at least a scheme and host
     guard let scheme = url.scheme, let host = url.host else { return false }
@@ -114,7 +114,7 @@ extension String {
     guard !self.isEmpty else { return false }
 
     // Try to create a URL from the string
-    guard let url = URL(string: self) else { return false }
+    guard let url = URL(string: String(self)) else { return false }
 
     // Verify the URL has at least a scheme and host
     guard let scheme = url.scheme else { return false }

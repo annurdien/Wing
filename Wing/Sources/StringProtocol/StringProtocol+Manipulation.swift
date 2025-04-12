@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Returns a substring starting from a given index.
   ///
   /// Example:
@@ -73,7 +73,7 @@ extension String {
   /// print(str.inserting(", ", at: 5)) // Output: "Hello, World"
   /// ```
   public func inserting(_ string: String, at index: Int) -> String {
-    guard index >= 0, index <= count else { return self }
+    guard index >= 0, index <= count else { return String(self) }
     return String(prefix(index)) + string + String(suffix(count - index))
   }
 
@@ -97,7 +97,7 @@ extension String {
   /// print(str.truncate(length: 10, addEllipsis: false)) // Output: "This is a "
   /// ```
   public func truncate(length: Int, addEllipsis: Bool = true) -> String {
-    guard count > length else { return self }
+    guard count > length else { return String(self) }
     let trimmedString = String(prefix(length))
     return addEllipsis ? "\(trimmedString)..." : trimmedString
   }

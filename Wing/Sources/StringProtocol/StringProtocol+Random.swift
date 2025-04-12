@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Generates a random string of a given length using alphanumeric characters.
   ///
   /// Example:

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Returns a UTF-8 encoded version of the string as `Data`.
   ///
   /// Example:

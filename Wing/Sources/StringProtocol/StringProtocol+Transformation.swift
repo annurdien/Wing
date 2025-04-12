@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Returns a new string with diacritic marks removed (e.g., "café" becomes "cafe").
   ///
   /// Example:
@@ -29,7 +29,7 @@ extension String {
   /// print(alreadyUpper.uppercasedFirstLetter) // Output: "World"
   /// ```
   public var uppercasedFirstLetter: String {
-    guard !isEmpty else { return self }
+    guard !isEmpty else { return String(self) }
     return prefix(1).uppercased() + dropFirst()
   }
 
@@ -43,7 +43,7 @@ extension String {
   /// print(alreadyLower.lowercasedFirstLetter) // Output: "world"
   /// ```
   public var lowercasedFirstLetter: String {
-    guard !isEmpty else { return self }
+    guard !isEmpty else { return String(self) }
     return prefix(1).lowercased() + dropFirst()
   }
 
@@ -57,7 +57,7 @@ extension String {
   /// print(alreadyCamel.camelCased) // Output: "thisIsCamelCase"
   /// ```
   public var camelCased: String {
-    guard !isEmpty else { return self }
+    guard !isEmpty else { return String(self) }
     let words = components(separatedBy: CharacterSet.alphanumerics.inverted)
       .filter { !$0.isEmpty }
     guard let firstWord = words.first else { return "" }
@@ -83,12 +83,12 @@ extension String {
   /// print(alreadySnake.snakeCased) // Output: "this_is_snake_case"
   /// ```
   public var snakeCased: String {
-    guard !isEmpty else { return self }
+    guard !isEmpty else { return String(self) }
     let pattern = "[A-Z]([A-Z0-9]+)?(?=$|[A-Z][a-z])|[A-Z]?[a-z]+"
     let regex = try? NSRegularExpression(pattern: pattern, options: [])
     let range = NSRange(location: 0, length: utf16.count)
-    return regex?.matches(in: self, options: [], range: range)
-      .map { (self as NSString).substring(with: $0.range) }
+    return regex?.matches(in: String(self), options: [], range: range)
+      .map { (String(self) as NSString).substring(with: $0.range) }
       .joined(separator: "_")
       .lowercased() ?? lowercased()
   }
@@ -125,7 +125,7 @@ extension String {
   /// print(encoded.base64Decoded ?? "") // Output: "Hello"
   /// ```
   public var base64Decoded: String? {
-    guard let data = Data(base64Encoded: self) else { return nil }
+    guard let data = Data(base64Encoded: String(self)) else { return nil }
     return String(data: data, encoding: .utf8)
   }
 

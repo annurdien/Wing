@@ -8,7 +8,7 @@
 import CommonCrypto
 import Foundation
 
-extension String {
+extension StringProtocol {
   /// Returns the SHA1 hash of the string.
   ///
   /// Example:
