@@ -37,15 +37,90 @@
 		A78B5F4E2DA95FDA0018AC25 /* WingTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WingTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A78B61172DAB136D0018AC25 /* Exceptions for "Sources" folder in "Wing" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Clamping.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Comparison.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Conversion.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Formatting.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Math.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Properties.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Random.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Rounding.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+TimeInterval.swift",
+				"Wing/BinaryInteger/BinaryInteger+Clamping.swift",
+				"Wing/BinaryInteger/BinaryInteger+Conversion.swift",
+				"Wing/BinaryInteger/BinaryInteger+Formatting.swift",
+				"Wing/BinaryInteger/BinaryInteger+Math.swift",
+				"Wing/BinaryInteger/BinaryInteger+Properties.swift",
+				"Wing/BinaryInteger/BinaryInteger+Random.swift",
+				"Wing/BinaryInteger/BinaryInteger+RangeIteration.swift",
+				"Wing/BinaryInteger/BinaryInteger+TimeInterval.swift",
+				"Wing/StringProtocol/StringProtocol+Comparison.swift",
+				"Wing/StringProtocol/StringProtocol+Conversion.swift",
+				"Wing/StringProtocol/StringProtocol+Encoding.swift",
+				"Wing/StringProtocol/StringProtocol+Formatting.swift",
+				"Wing/StringProtocol/StringProtocol+Foundation.swift",
+				"Wing/StringProtocol/StringProtocol+Hashing.swift",
+				"Wing/StringProtocol/StringProtocol+Manipulation.swift",
+				"Wing/StringProtocol/StringProtocol+Random.swift",
+				"Wing/StringProtocol/StringProtocol+Regex.swift",
+				"Wing/StringProtocol/StringProtocol+Transformation.swift",
+				"Wing/StringProtocol/StringProtocol+Validation.swift",
+			);
+			target = A78B5F3F2DA95FA20018AC25 /* Wing */;
+		};
+		A78B61182DAB136D0018AC25 /* Exceptions for "Sources" folder in "WingTest" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Clamping.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Comparison.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Conversion.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Formatting.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Math.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Properties.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Random.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+Rounding.swift",
+				"Wing/BinaryFloatingPoint/BinaryFloatingPoint+TimeInterval.swift",
+				"Wing/BinaryInteger/BinaryInteger+Clamping.swift",
+				"Wing/BinaryInteger/BinaryInteger+Conversion.swift",
+				"Wing/BinaryInteger/BinaryInteger+Formatting.swift",
+				"Wing/BinaryInteger/BinaryInteger+Math.swift",
+				"Wing/BinaryInteger/BinaryInteger+Properties.swift",
+				"Wing/BinaryInteger/BinaryInteger+Random.swift",
+				"Wing/BinaryInteger/BinaryInteger+RangeIteration.swift",
+				"Wing/BinaryInteger/BinaryInteger+TimeInterval.swift",
+				"Wing/StringProtocol/StringProtocol+Comparison.swift",
+				"Wing/StringProtocol/StringProtocol+Conversion.swift",
+				"Wing/StringProtocol/StringProtocol+Encoding.swift",
+				"Wing/StringProtocol/StringProtocol+Formatting.swift",
+				"Wing/StringProtocol/StringProtocol+Foundation.swift",
+				"Wing/StringProtocol/StringProtocol+Hashing.swift",
+				"Wing/StringProtocol/StringProtocol+Manipulation.swift",
+				"Wing/StringProtocol/StringProtocol+Random.swift",
+				"Wing/StringProtocol/StringProtocol+Regex.swift",
+				"Wing/StringProtocol/StringProtocol+Transformation.swift",
+				"Wing/StringProtocol/StringProtocol+Validation.swift",
+			);
+			target = A78B5F4D2DA95FDA0018AC25 /* WingTest */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A78B5F422DA95FA20018AC25 /* Wing */ = {
+		A78B5F4F2DA95FDA0018AC25 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Wing;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		A78B5F4F2DA95FDA0018AC25 /* WingTest */ = {
+		A78B60D82DAB13620018AC25 /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = WingTest;
+			exceptions = (
+				A78B61172DAB136D0018AC25 /* Exceptions for "Sources" folder in "Wing" target */,
+				A78B61182DAB136D0018AC25 /* Exceptions for "Sources" folder in "WingTest" target */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -72,8 +147,8 @@
 		A78B5F372DA95FA20018AC25 = {
 			isa = PBXGroup;
 			children = (
-				A78B5F422DA95FA20018AC25 /* Wing */,
-				A78B5F4F2DA95FDA0018AC25 /* WingTest */,
+				A78B60D82DAB13620018AC25 /* Sources */,
+				A78B5F4F2DA95FDA0018AC25 /* Tests */,
 				A78B5F412DA95FA20018AC25 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,9 +177,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				A78B5F422DA95FA20018AC25 /* Wing */,
-			);
 			name = Wing;
 			packageProductDependencies = (
 			);
@@ -126,7 +198,8 @@
 				A78B5F542DA95FDA0018AC25 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				A78B5F4F2DA95FDA0018AC25 /* WingTest */,
+				A78B5F4F2DA95FDA0018AC25 /* Tests */,
+				A78B60D82DAB13620018AC25 /* Sources */,
 			);
 			name = WingTest;
 			packageProductDependencies = (
