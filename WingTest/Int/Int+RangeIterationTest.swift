@@ -51,4 +51,34 @@ struct IntRangeIterationTests {
     1.downto(5) { result.append($0) }
     #expect(result == [])
   }
+  
+  @Test func testForEachPositiveCount() {
+      var count = 0
+      3.forEach { _ in
+          count += 1
+      }
+      #expect(count == 3)
+
+      var sum = 0
+      5.forEach { index in
+          sum += index
+      }
+      #expect(sum == 0 + 1 + 2 + 3 + 4) // Sum of indices from 0 to 4
+  }
+
+  @Test func testForEachZeroCount() {
+      var count = 0
+      0.forEach { _ in
+          count += 1
+      }
+      #expect(count == 0)
+  }
+
+  @Test func testForEachNegativeCount() {
+      var count = 0
+      (-2).forEach { _ in
+          count += 1
+      }
+      #expect(count == 0)
+  }
 }

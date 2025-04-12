@@ -51,4 +51,21 @@ extension Int {
       action(i)
     }
   }
+  
+  /// Executes the given closure a specified number of times, providing the current iteration index.
+  ///
+  /// Example:
+  /// ```swift
+  /// 3.forEach { index in
+  ///     print("Iteration: \(index)") // Prints "Iteration: 0", "Iteration: 1", "Iteration: 2"
+  /// }
+  /// ```
+  ///
+  /// - Parameter body: A closure that takes the current iteration index (starting from 0) as its argument and returns no value.
+  public func forEach(body: (Int) -> Void) {
+    guard self > 0 else { return }
+    for i in 0..<self {
+      body(i)
+    }
+  }
 }

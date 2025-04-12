@@ -21,4 +21,22 @@ extension Int {
     formatter.numberStyle = style
     return formatter.string(from: NSNumber(value: self))
   }
+  
+  /// Returns a currency formatted string representation of the integer for the given locale.
+  ///
+  /// Example:
+  /// ```swift
+  /// let price = 1500
+  /// let usCurrency = price.currencyFormatted(locale: Locale(identifier: "en_US")) // "$1,500.00"
+  /// let germanCurrency = price.currencyFormatted(locale: Locale(identifier: "de_DE")) // "1.500,00 €"
+  /// ```
+  ///
+  /// - Parameter locale: The `Locale` to use for formatting the currency. Defaults to the current locale.
+  /// - Returns: A currency formatted string, or `nil` if formatting fails.
+  public func currencyFormatted(locale: Locale = .current) -> String? {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .currency
+    numberFormatter.locale = locale
+    return numberFormatter.string(from: NSNumber(value: self))
+  }
 }
