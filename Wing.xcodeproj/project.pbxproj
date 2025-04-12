@@ -6,6 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A78B5F522DA95FDA0018AC25 /* libWing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A78B5F402DA95FA20018AC25 /* libWing.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A78B5F532DA95FDA0018AC25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A78B5F382DA95FA20018AC25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A78B5F3F2DA95FA20018AC25;
+			remoteInfo = Wing;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		A78B5F3E2DA95FA20018AC25 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,12 +34,18 @@
 
 /* Begin PBXFileReference section */
 		A78B5F402DA95FA20018AC25 /* libWing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWing.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A78B5F4E2DA95FDA0018AC25 /* WingTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WingTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A78B5F422DA95FA20018AC25 /* Wing */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Wing;
+			sourceTree = "<group>";
+		};
+		A78B5F4F2DA95FDA0018AC25 /* WingTest */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WingTest;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +58,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A78B5F4B2DA95FDA0018AC25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A78B5F522DA95FDA0018AC25 /* libWing.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -45,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				A78B5F422DA95FA20018AC25 /* Wing */,
+				A78B5F4F2DA95FDA0018AC25 /* WingTest */,
 				A78B5F412DA95FA20018AC25 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				A78B5F402DA95FA20018AC25 /* libWing.a */,
+				A78B5F4E2DA95FDA0018AC25 /* WingTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,6 +112,29 @@
 			productReference = A78B5F402DA95FA20018AC25 /* libWing.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		A78B5F4D2DA95FDA0018AC25 /* WingTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A78B5F552DA95FDA0018AC25 /* Build configuration list for PBXNativeTarget "WingTest" */;
+			buildPhases = (
+				A78B5F4A2DA95FDA0018AC25 /* Sources */,
+				A78B5F4B2DA95FDA0018AC25 /* Frameworks */,
+				A78B5F4C2DA95FDA0018AC25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A78B5F542DA95FDA0018AC25 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A78B5F4F2DA95FDA0018AC25 /* WingTest */,
+			);
+			name = WingTest;
+			packageProductDependencies = (
+			);
+			productName = WingTest;
+			productReference = A78B5F4E2DA95FDA0018AC25 /* WingTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +146,10 @@
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					A78B5F3F2DA95FA20018AC25 = {
+						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 1620;
+					};
+					A78B5F4D2DA95FDA0018AC25 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -112,9 +169,20 @@
 			projectRoot = "";
 			targets = (
 				A78B5F3F2DA95FA20018AC25 /* Wing */,
+				A78B5F4D2DA95FDA0018AC25 /* WingTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A78B5F4C2DA95FDA0018AC25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A78B5F3C2DA95FA20018AC25 /* Sources */ = {
@@ -124,7 +192,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A78B5F4A2DA95FDA0018AC25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A78B5F542DA95FDA0018AC25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A78B5F3F2DA95FA20018AC25 /* Wing */;
+			targetProxy = A78B5F532DA95FDA0018AC25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A78B5F452DA95FA20018AC25 /* Debug */ = {
@@ -187,6 +270,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 			};
 			name = Debug;
 		};
@@ -242,6 +326,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -249,11 +334,14 @@
 		A78B5F482DA95FA20018AC25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YWWN4M3Y9;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -262,11 +350,45 @@
 		A78B5F492DA95FA20018AC25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YWWN4M3Y9;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A78B5F562DA95FDA0018AC25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7YWWN4M3Y9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bar.alja.WingTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A78B5F572DA95FDA0018AC25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7YWWN4M3Y9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bar.alja.WingTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,6 +411,15 @@
 			buildConfigurations = (
 				A78B5F482DA95FA20018AC25 /* Debug */,
 				A78B5F492DA95FA20018AC25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A78B5F552DA95FDA0018AC25 /* Build configuration list for PBXNativeTarget "WingTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78B5F562DA95FDA0018AC25 /* Debug */,
+				A78B5F572DA95FDA0018AC25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
