@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Int {
+extension BinaryInteger {
   /// Returns a random integer within the specified inclusive range.
   ///
   /// ```swift
@@ -16,10 +16,10 @@ extension Int {
   ///
   /// - Parameter range: The inclusive range within which to generate a random integer.
   /// - Returns: A random integer within the specified range.
-  public static func random(in range: ClosedRange<Int>) -> Int {
+  public static func random(in range: ClosedRange<Self>) -> Self {
     let min = range.lowerBound
     let max = range.upperBound
     let diff = max - min + 1
-    return min + Int(arc4random_uniform(UInt32(diff)))
+    return min + Self(arc4random_uniform(UInt32(diff)))
   }
 }

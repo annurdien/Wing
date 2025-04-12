@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Int {
+extension BinaryInteger {
   /// Returns a `TimeInterval` representing the integer as seconds.
   public var seconds: TimeInterval {
     return TimeInterval(self)

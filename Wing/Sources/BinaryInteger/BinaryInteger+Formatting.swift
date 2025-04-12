@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Int {
+extension BinaryInteger {
   /// Returns a formatted string representation of the integer using the specified number style.
   ///
   /// ```swift
@@ -19,7 +19,7 @@ extension Int {
   public func formatted(withStyle style: NumberFormatter.Style) -> String? {
     let formatter = NumberFormatter()
     formatter.numberStyle = style
-    return formatter.string(from: NSNumber(value: self))
+    return formatter.string(from: NSNumber(value: Int(self)))
   }
   
   /// Returns a currency formatted string representation of the integer for the given locale.
@@ -37,6 +37,6 @@ extension Int {
     let numberFormatter = NumberFormatter()
     numberFormatter.numberStyle = .currency
     numberFormatter.locale = locale
-    return numberFormatter.string(from: NSNumber(value: self))
+    return numberFormatter.string(from: NSNumber(value: Int(self)))
   }
 }

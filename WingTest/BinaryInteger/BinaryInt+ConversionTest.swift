@@ -9,8 +9,7 @@ import Testing
 import CoreGraphics
 @testable import Wing
 
-struct IntConversionTests {
-  
+struct BinaryIntConversionTests {
   @Test func testToString() {
     #expect(0.string == "0")
     #expect(123.string == "123")

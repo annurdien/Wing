@@ -8,7 +8,7 @@
 import Testing
 @testable import Wing
 
-struct IntClampingTests {
+struct BinaryIntClampingTests {
   @Test func testClampedToRangeWithinBounds() {
     let value = 5
     let range = 0...10

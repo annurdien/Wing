@@ -5,7 +5,7 @@
 //  Created by Annurdien Rasyid on 12/04/25.
 //
 
-extension Int {
+extension BinaryInteger {
   /// Executes the given closure a specified number of times.
   ///
   /// ```swift
@@ -15,7 +15,7 @@ extension Int {
   /// - Parameter action: A closure that takes no arguments and returns no value.
   public func times(action: () -> Void) {
     guard self > 0 else { return }
-    for _ in 0..<self {
+    for _ in 0..<Int(self) {
       action()
     }
   }
@@ -29,10 +29,10 @@ extension Int {
   /// - Parameters:
   ///   - value: The upper bound of the range (inclusive).
   ///   - action: A closure that takes the current integer as its argument and returns no value.
-  public func upto(_ value: Int, action: (Int) -> Void) {
+  public func upto(_ value: Self, action: (Self) -> Void) {
     guard self <= value else { return }
-    for i in self...value {
-      action(i)
+    for i in Int(self)...Int(value) {
+      action(Self(i))
     }
   }
   
@@ -45,7 +45,7 @@ extension Int {
   /// - Parameters:
   ///   - value: The lower bound of the range (inclusive).
   ///   - action: A closure that takes the current integer as its argument and returns no value.
-  public func downto(_ value: Int, action: (Int) -> Void) {
+  public func downto(_ value: Self, action: (Self) -> Void) {
     guard self >= value else { return }
     for i in stride(from: self, through: value, by: -1) {
       action(i)
@@ -62,10 +62,10 @@ extension Int {
   /// ```
   ///
   /// - Parameter body: A closure that takes the current iteration index (starting from 0) as its argument and returns no value.
-  public func forEach(body: (Int) -> Void) {
+  public func forEach(body: (Self) -> Void) {
     guard self > 0 else { return }
-    for i in 0..<self {
-      body(i)
+    for i in 0..<Int(self) {
+      body(Self(i))
     }
   }
 }

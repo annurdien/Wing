@@ -8,7 +8,7 @@
 import Foundation
 import CoreGraphics
 
-extension Int {
+extension BinaryInteger {
   /// Returns the result of raising the current integer to the power of the given integer.
   ///
   /// Example:
@@ -20,11 +20,11 @@ extension Int {
   ///
   /// - Parameter exponent: The power to raise the integer to.
   /// - Returns: The integer raised to the given power.
-  public func power(of exponent: Int) -> Int {
-    guard exponent >= 0 else { return 0 } // Or throw an error for negative exponents
+  public func power(of exponent: Self) -> Self {
+    guard exponent >= 0 else { return 0 }
     if exponent == 0 { return 1 }
-    var result = self
-    for _ in 1..<exponent {
+    var result: Self = 1
+    for _ in 0..<Int(exponent) {
       result *= self
     }
     return result
@@ -44,10 +44,14 @@ extension Int {
   /// ```
   public var isPrime: Bool {
     guard self > 1 else { return false }
-    for i in 2..<Int(sqrt(Double(self))) + 1 {
+    
+    let limit = Self(Double(self).squareRoot()) + 1
+    var i: Self = 2
+    while i < limit {
       if self % i == 0 {
         return false
       }
+      i += 1
     }
     return true
   }
@@ -61,12 +65,14 @@ extension Int {
   /// let number = 5
   /// let factorialOfFive = number.factorial // 120 (5 * 4 * 3 * 2 * 1)
   /// ```
-  public var factorial: Int {
-    guard self >= 0 else { return 1 } // Or throw an error for negative input
+  public var factorial: Self {
+    guard self >= 0 else { return 1 } // Could throw instead
     if self == 0 { return 1 }
-    var result = 1
-    for i in 1...self {
+    var result: Self = 1
+    var i: Self = 1
+    while i <= self {
       result *= i
+      i += 1
     }
     return result
   }
@@ -82,8 +88,8 @@ extension Int {
   ///
   /// - Parameter divisor: The integer to check for divisibility.
   /// - Returns: `true` if the integer is divisible by `divisor`, `false` otherwise.
-  public func isDivisible(by divisor: Int) -> Bool {
-    guard divisor != 0 else { return false } // Avoid division by zero
+  public func isDivisible(by divisor: Self) -> Bool {
+    guard divisor != 0 else { return false }
     return self % divisor == 0
   }
   
@@ -98,13 +104,15 @@ extension Int {
   ///
   /// - Parameter other: The other integer to calculate the GCD with.
   /// - Returns: The greatest common divisor.
-  public func gcd(with other: Int) -> Int {
-    var a = abs(self)
-    var b = abs(other)
+  public func gcd(with other: Self) -> Self {
+    var a = self.magnitude
+    var b = other.magnitude
     while b != 0 {
-      (a, b) = (b, a % b)
+      let temp = b
+      b = a % b
+      a = temp
     }
-    return a
+    return Self(a)
   }
   
   /// Returns the least common multiple (LCM) of the current integer and the given integer.
@@ -118,8 +126,8 @@ extension Int {
   ///
   /// - Parameter other: The other integer to calculate the LCM with.
   /// - Returns: The least common multiple.
-  public func lcm(with other: Int) -> Int {
+  public func lcm(with other: Self) -> Self {
     guard self != 0 && other != 0 else { return 0 }
-    return abs(self * other) / gcd(with: other)
+    return Self((self * other).magnitude) / self.gcd(with: other)
   }
 }

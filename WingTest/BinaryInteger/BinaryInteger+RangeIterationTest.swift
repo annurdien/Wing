@@ -8,8 +8,7 @@
 import Testing
 @testable import Wing
 
-struct IntRangeIterationTests {
-  
+struct BinaryIntRangeIterationTests {
   @Test func testTimes() {
     var count = 0
     3.times { count += 1 }

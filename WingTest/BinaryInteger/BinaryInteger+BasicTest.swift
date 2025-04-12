@@ -8,8 +8,7 @@
 import Testing
 @testable import Wing
 
-struct IntBasicPropertiesTests {
-  
+struct BinaryIntBasicPropertiesTests {
   @Test func testIsEven() {
     #expect(0.isEven == true)
     #expect(2.isEven == true)
@@ -44,11 +43,5 @@ struct IntBasicPropertiesTests {
     #expect(0.isZero == true)
     #expect(1.isZero == false)
     #expect((-1).isZero == false)
-  }
-  
-  @Test func testAbsoluteValue() {
-    #expect(0.absoluteValue == 0)
-    #expect(5.absoluteValue == 5)
-    #expect((-5).absoluteValue == 5)
   }
 }

@@ -5,7 +5,8 @@
 //  Created by Annurdien Rasyid on 12/04/25.
 //
 
-extension Int {
+
+extension BinaryInteger {
   /// Returns the integer clamped to the inclusive range provided.
   ///
   /// ```swift
@@ -15,7 +16,7 @@ extension Int {
   ///
   /// - Parameter range: The inclusive range to clamp the integer to.
   /// - Returns: The integer clamped to the bounds of the range.
-  public func clamped(to range: ClosedRange<Int>) -> Int {
+  public func clamped(to range: ClosedRange<Self>) -> Self {
     return Swift.min(Swift.max(self, range.lowerBound), range.upperBound)
   }
 }

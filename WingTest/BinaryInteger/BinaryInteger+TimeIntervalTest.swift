@@ -10,8 +10,7 @@ import Foundation
 
 @testable import Wing
 
-struct IntTimeIntervalTests {
-  
+struct BinaryIntTimeIntervalTests {
   @Test func testSeconds() {
     #expect(5.seconds == TimeInterval(5))
     #expect(0.seconds == TimeInterval(0))

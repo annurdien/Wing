@@ -10,8 +10,7 @@ import Foundation
 
 @testable import Wing
 
-struct IntPowerTests {
-  
+struct BinaryIntPowerTests {
   @Test func testPowerPositiveExponent() {
     #expect(2.power(of: 3) == 8)
     #expect(5.power(of: 2) == 25)

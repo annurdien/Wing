@@ -8,7 +8,7 @@
 import Testing
 @testable import Wing
 
-struct IntFormattingTests {
+struct BinaryIntFormattingTests {
   @Test func testFormattedWithCurrencyStyle() {
     let number = 12345
     let formatted = number.formatted(withStyle: .currency)

@@ -7,7 +7,7 @@
 
 import CoreGraphics
 
-extension Int {
+extension BinaryInteger {
   /// Returns a `String` representation of the integer.
   ///
   /// Example:

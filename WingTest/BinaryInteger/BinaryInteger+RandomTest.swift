@@ -8,8 +8,7 @@
 import Testing
 @testable import Wing
 
-struct IntRandomizationTests {
-  
+struct BinaryIntRandomizationTests {
   @Test func testRandomInRange() {
     let range = 1...10
     for _ in 0..<100 {
