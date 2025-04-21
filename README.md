@@ -1,88 +1,125 @@
-# Wing
+<p align="center">
+    <img src="docs/logo-wing.png" alt="Wing Logo" width="500">
+</p>
 
-Wing is a Swift library that provides a comprehensive collection of extensions for standard Swift types and Foundation/UIKit classes, designed to simplify common programming tasks and enhance developer productivity.
+<h1 align="center">Wing</h1>
 
-## Features
+<p align="center">
+    <a href="https://swift.org">
+        <img src="https://img.shields.io/badge/Swift-6+-orange.svg" alt="Swift 6+">
+    </a>
+    <a href="https://developer.apple.com/ios/">
+        <img src="https://img.shields.io/badge/iOS-15.0+-blue.svg" alt="iOS 15.0+">
+    </a>
+    <a href="https://developer.apple.com/macos/">
+        <img src="https://img.shields.io/badge/macOS-10.15+-blue.svg" alt="macOS 10.15+">
+    </a>
+    <a href="https://github.com/annurdien/Wing/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT">
+    </a>
+</p>
 
-### String Extensions
-- **Encoding/Decoding**
-  - Base64 encoding/decoding
-  - URL encoding/decoding
-  - UTF-8 encoding/decoding
-- **Text Manipulation**
-  - Case transformations (camelCase, snake_case, kebab-case)
-  - Trimming whitespace
-  - Padding
-  - Truncating
-  - Removing HTML tags
-  - String reversal
-- **Validation**
-  - URL validation
-  - Hexadecimal validation
-  - Custom character set validation
-- **Formatting**
-  - Currency formatting
-  - Percentage formatting
-  - Number formatting
-- **Generation**
-  - Random string generation (alphanumeric, alphabetic, numeric)
-- **Hashing**
-  - SHA1
-  - SHA256
+<p align="center">
+    A powerful Swift library providing comprehensive extensions for standard Swift types and Foundation/UIKit classes, 
+    designed to enhance developer productivity and simplify common programming tasks.
+</p>
 
-### Number Extensions
-- **BinaryInteger & BinaryFloatingPoint**
-  - Mathematical operations (power, square root, etc.)
-  - Rounding and formatting
-  - Range clamping
-  - Random number generation
-  - Time interval conversions
-  - Currency formatting
-  - Type conversions
+## 📖 Table of Contents
 
-### Date Extensions
-- Time difference calculations
-- Date comparison (`isToday`, `isInPast`, `isInFuture`)
-- String conversion with custom formats
-- Date manipulation (adding/subtracting days)
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage Examples](#-usage-examples)
+- [Requirements](#-requirements)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Author](#-author)
 
-### Collection Extensions
-- Safe subscript access
-- Array chunking
-- Duplicate removal
-- Element swapping
-- Element moving
+## ✨ Features
 
-### Optional Extensions
-- Convenience unwrapping methods
-- Nil coalescing with default values
-- Optional chaining helpers
-- Nil-or-empty checking for collections
+<details open>
+<summary>🔤 String Extensions</summary>
 
-### Property Wrappers
-- `@Clamped`: Value range restriction
-- `@KeyValueStorage`: UserDefaults persistence
-- `@Limited`: Collection/String length limiting
-- `@Masked`: String pattern masking
-- `@Trimming`: Automatic whitespace trimming
-- `@Validated`: Value validation
+| Category | Features |
+|----------|----------|
+| **Encoding/Decoding** | • Base64 encoding/decoding<br>• URL encoding/decoding<br>• UTF-8 encoding/decoding |
+| **Text Manipulation** | • Case transformations (camelCase, snake_case, kebab-case)<br>• Trimming whitespace<br>• Padding<br>• Truncating<br>• Removing HTML tags<br>• String reversal |
+| **Validation** | • URL validation<br>• Hexadecimal validation<br>• Custom character set validation |
+| **Formatting** | • Currency formatting<br>• Percentage formatting<br>• Number formatting |
+| **Generation** | • Random string generation (alphanumeric, alphabetic, numeric) |
+| **Hashing** | • SHA1<br>• SHA256 |
 
+</details>
 
-Complete documentation is available [here](https://annurdien.github.io/Wing/documentation/wing).
+<details>
+<summary>🔢 Number Extensions</summary>
 
-## Installation
+| Category | Features |
+|----------|----------|
+| **Mathematical Operations** | • Power calculation<br>• Square root<br>• Rounding and formatting |
+| **Utilities** | • Range clamping<br>• Random number generation<br>• Type conversions |
+| **Formatting** | • Currency formatting<br>• Time interval conversions |
+
+</details>
+
+<details>
+<summary>📅 Date Extensions</summary>
+
+| Feature | Description |
+|---------|-------------|
+| **Calculations** | • Time difference calculations<br>• Date manipulation (adding/subtracting days) |
+| **Comparison** | • `isToday`<br>• `isInPast`<br>• `isInFuture` |
+| **Formatting** | • String conversion with custom formats |
+
+</details>
+
+<details>
+<summary>📚 Collection Extensions</summary>
+
+| Feature | Description |
+|---------|-------------|
+| **Safety** | • Safe subscript access |
+| **Manipulation** | • Array chunking<br>• Duplicate removal<br>• Element swapping<br>• Element moving |
+
+</details>
+
+<details>
+<summary>⚡ Optional Extensions</summary>
+
+| Feature | Description |
+|---------|-------------|
+| **Unwrapping** | • Convenience unwrapping methods<br>• Nil coalescing with default values |
+| **Utilities** | • Optional chaining helpers<br>• Nil-or-empty checking for collections |
+
+</details>
+
+<details>
+<summary>🎁 Property Wrappers</summary>
+
+| Wrapper | Description |
+|---------|-------------|
+| **@Clamped** | Value range restriction |
+| **@KeyValueStorage** | UserDefaults persistence |
+| **@Limited** | Collection/String length limiting |
+| **@Masked** | String pattern masking |
+| **@Trimming** | Automatic whitespace trimming |
+| **@Validated** | Value validation |
+
+</details>
+
+## 📦 Installation
 
 ### Swift Package Manager
 
-Add Wing as a dependency in your `Package.swift` file:
+Add Wing to your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/username/Wing.git", from: "1.0.0")
+    .package(url: "https://github.com/annurdien/Wing.git", from: "1.0.0")
 ]
 ```
 
-## Usage Examples
+## 🚀 Usage Examples
 
 ### String Extensions
 ```swift
@@ -92,85 +129,57 @@ import Wing
 let encoded = "Hello".base64Encoded // "SGVsbG8="
 let decoded = encoded?.base64Decoded // "Hello"
 
-// URL encoding/decoding
-let url = "Hello World!".urlEncoded // "Hello%20World!"
-let decoded = url?.urlDecoded // "Hello World!"
-
-// Case transformations
-"helloWorld".snakeCased // "hello_world"
-"hello-world".camelCased // "helloWorld"
-
-// String validation
-"https://example.com".isValidURL // true
-"FF00FF".isHexadecimal // true
+// More examples...
 ```
 
-### Number Extensions
-```swift
-import Wing
+// ...existing examples...
 
-// Mathematical operations
-5.squared // 25
-16.squareRoot() // 4.0
-2.power(3) // 8
+## ⚙️ Requirements
 
-// Formatting
-123.456.formatted(withFractionDigits: 2) // "123.46"
-1234.currencyFormatted(locale: Locale(identifier: "en_US")) // "$1,234.00"
+- iOS 15.0+
+- Swift 6.0+
+- Xcode 15.0+
 
-// Time intervals
-5.minutes // TimeInterval(300)
-2.hours // TimeInterval(7200)
-```
+## 📚 Documentation
 
-### Date Extensions
-```swift
-import Wing
+### Building Documentation
 
-let date = Date()
-date.isToday // true
-date.isInPast // false
-date.toString("yyyy-MM-dd") // "2025-04-21"
-date.addingDays(7) // Date one week from now
-```
+```bash
+# Generate documentation using DocC
+xcodebuild docbuild -scheme Wing -destination generic/platform=iOS
 
-### Collection Extensions
-```swift
-import Wing
-
-let array = [1, 2, 2, 3, 3, 3]
-array.removingDuplicates() // [1, 2, 3]
-
-let chunks = array.chunked(into: 2) // [[1, 2], [2, 3], [3, 3]]
-
-// Safe subscript
-let items = ["a", "b", "c"]
-items[safe: 5] // nil
-```
-
-## Requirements
-
-- iOS 13.0+ / macOS 10.15+
-- Swift 5.3+
-- Xcode 12.0+
-
-## Documentation
-
-Detailed API documentation is available through DocC. Build the documentation in Xcode using:
+# View in Xcode
 Product > Build Documentation (⌘ + ⇧ + D)
+```
 
-## Contributing
+### Online Documentation
+Visit our [online documentation](https://annurdien.github.io/Wing/documentation/wing) for detailed API references and guides.
+
+## 👥 Contributing
+
+We welcome contributions! Please follow these steps:
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+3. Write tests for your changes
+4. Commit your changes (`git commit -m 'Add amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
 
-## License
+For major changes, please open an issue first to discuss what you would like to change.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 📄 License
 
-## Author
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Annurdien Rasyid
+## 👨‍💻 Author
+
+**Annurdien Rasyid**
+- GitHub: [@annurdien](https://github.com/annurdien)
+- Twitter: [@annurdien](https://twitter.com/annurdien)
+
+---
+
+<p align="center">
+    Made with ❤️ by <a href="https://github.com/annurdien">Annurdien Rasyid</a>
+</p>
