@@ -107,26 +107,45 @@ public extension Optional {
     }
     return value
   }
-}
-
-public extension Optional where Wrapped: Collection {
-  /// Checks if the collection is empty or `nil`.
+  
+  /// Executes the given closure with the unwrapped value if the optional is not `nil`.
   ///
-  /// Use this property to quickly determine if a collection optional is either `nil` or contains no items.
-  /// - Returns: `true` if the optional is `nil` or the collection is empty, otherwise `false`.
+  /// - Parameter action: A closure that takes the unwrapped value as its argument.
+  @inlinable
+  func ifLet(_ action: (Wrapped) throws -> Void) rethrows {
+    switch self {
+    case .some(let value):
+      try action(value)
+    case .none:
+      break
+    }
+  }
+  
+  /// Maps the wrapped value using the given closure if the optional is not `nil`, otherwise returns `nil`.
   ///
-  /// Example:
-  /// ```swift
-  /// let array: [Int]? = nil
-  /// print(array.isNilOrEmpty) // Prints: true
+  /// - Parameter transform: A closure that takes the unwrapped value and returns a new optional value.
+  /// - Returns: The result of the `transform` closure if the optional has a value, otherwise `nil`.
+  @inlinable
+  func mapIfPresent<U>(_ transform: (Wrapped) throws -> U) rethrows -> U? {
+    switch self {
+    case .some(let value):
+      return try transform(value)
+    case .none:
+      return nil
+    }
+  }
+  
+  /// Flat-maps the wrapped value using the given closure if the optional is not `nil`, otherwise returns `nil`.
   ///
-  /// let emptyArray: [Int]? = []
-  /// print(emptyArray.isNilOrEmpty) // Prints: true
-  ///
-  /// let nonEmptyArray: [Int]? = [1, 2, 3]
-  /// print(nonEmptyArray.isNilOrEmpty) // Prints: false
-  /// ```
-  var isNilOrEmpty: Bool {
-    return self?.isEmpty ?? true
+  /// - Parameter transform: A closure that takes the unwrapped value and returns a new optional value.
+  /// - Returns: The result of the `transform` closure if the optional has a value, otherwise `nil`.
+  @inlinable
+  func flatMapIfPresent<U>(_ transform: (Wrapped) throws -> U?) rethrows -> U? {
+    switch self {
+    case .some(let value):
+      return try transform(value)
+    case .none:
+      return nil
+    }
   }
 }
