@@ -129,10 +129,113 @@ import Wing
 let encoded = "Hello".base64Encoded // "SGVsbG8="
 let decoded = encoded?.base64Decoded // "Hello"
 
-// More examples...
+// Case transformations
+"helloWorld".snakeCased // "hello_world"
+"hello-world".camelCased // "helloWorld"
+"hello world".kebabCased // "hello-world"
+
+// String validation
+"https://example.com".isValidURL // true
+"FF00FF".isHexadecimal // true
+
+// String manipulation
+"  Hello World  ".trimmed // "Hello World"
+"Hello".padding(toLength: 10, withPad: "*") // "Hello*****"
+"Hello World".truncate(length: 8) // "Hello..."
 ```
 
-// ...existing examples...
+### Number Extensions
+```swift
+import Wing
+
+// Mathematical operations
+5.squared // 25
+16.squareRoot() // 4.0
+2.power(3) // 8
+
+// Formatting
+123.456.formatted(withFractionDigits: 2) // "123.46"
+1234.currencyFormatted(locale: Locale(identifier: "en_US")) // "$1,234.00"
+
+// Time intervals
+5.minutes // TimeInterval(300)
+2.hours // TimeInterval(7200)
+```
+
+### Date Extensions
+```swift
+import Wing
+
+let date = Date()
+date.isToday // true
+date.isInPast // false
+date.isInFuture // false
+
+// Date formatting
+date.toString("yyyy-MM-dd") // "2025-04-21"
+date.toString(dateStyle: .full, timeStyle: .short) // "Sunday, April 21, 2025 at 10:30 AM"
+
+// Date manipulation
+date.addingDays(7) // Date one week from now
+date.days(from: Date()) // 0
+```
+
+### Collection Extensions
+```swift
+import Wing
+
+// Safe subscript access
+let array = ["a", "b", "c"]
+array[safe: 1] // Optional("b")
+array[safe: 5] // nil
+
+// Array manipulation
+let numbers = [1, 2, 2, 3, 3, 3]
+numbers.removingDuplicates() // [1, 2, 3]
+numbers.chunked(into: 2) // [[1, 2], [2, 3], [3, 3]]
+
+var mutableArray = ["a", "b", "c"]
+mutableArray.move(from: 0, to: 2) // ["b", "c", "a"]
+```
+
+### Optional Extensions
+```swift
+import Wing
+
+let optionalValue: String? = "Hello"
+let nilValue: String? = nil
+
+// Convenient unwrapping
+optionalValue.ifPresent { value in
+    print(value) // "Hello"
+}
+
+// Default values
+nilValue.or("Default") // "Default"
+
+// Optional mapping
+optionalValue.mapIfPresent { $0.uppercased() } // Optional("HELLO")
+```
+
+### Property Wrappers
+```swift
+import Wing
+
+class Configuration {
+    @Clamped(min: 0, max: 100)
+    var volume: Int = 50 // Will always be between 0 and 100
+    
+    @KeyValueStorage("username")
+    var username: String = "default" // Persisted in UserDefaults
+    
+    @Limited(maxLength: 10)
+    var shortText: String = "" // Will be truncated if longer than 10 characters
+    
+    @Trimming
+    var userInput: String = "" // Whitespace will be automatically trimmed
+}
+```
+
 
 ## ⚙️ Requirements
 
