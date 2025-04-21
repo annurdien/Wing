@@ -12,11 +12,14 @@ let package = Package(
     .library(name: "Wing", targets: ["Wing"]),
     .library(name: "Wing-Dynamic", type: .dynamic, targets: ["Wing"]),
   ],
+  dependencies: [
+    .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.1.0"),
+  ],
   targets: [
     .target(name: "Wing", path: "Sources"),
     .testTarget(name: "WingTests", dependencies: ["Wing"]),
   ],
   swiftLanguageModes: [
     .v6
-  ]
+  ],
 )

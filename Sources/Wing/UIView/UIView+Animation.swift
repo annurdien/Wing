@@ -5,6 +5,8 @@
 //  Created by Annurdien Rasyid on 21/04/25.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 public extension UIView {
@@ -41,3 +43,5 @@ public extension UIView {
     }
   }
 }
+
+#endif

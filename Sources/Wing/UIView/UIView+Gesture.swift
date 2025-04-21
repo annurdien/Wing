@@ -5,6 +5,8 @@
 //  Created by Annurdien Rasyid on 21/04/25.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 @MainActor private var ActionKey: UInt8 = 0
@@ -89,3 +91,5 @@ private extension UIGestureRecognizer {
     }
   }
 }
+
+#endif

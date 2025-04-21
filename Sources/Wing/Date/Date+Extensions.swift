@@ -138,6 +138,7 @@ public extension Date {
     return self > Date()
   }
   
+  #if os(iOS)
   // MARK: - Relative Time
   
   /// Returns a relative time string for the date (e.g., "2 hours ago", "3 days from now").
@@ -154,4 +155,5 @@ public extension Date {
     formatter.unitsStyle = .full
     return formatter.string(for: self) ?? ""
   }
+  #endif
 }
