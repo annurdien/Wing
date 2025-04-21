@@ -149,3 +149,83 @@ public extension Optional {
     }
   }
 }
+
+//
+//  Optional+Extensions.swift
+//  Wing
+//
+//  Created by Annurdien Rasyid on 13/04/25.
+//
+
+import Foundation
+
+extension Optional {
+  /// Returns the wrapped value if it is not `nil`, otherwise returns the provided `defaultValue`.
+  ///
+  /// - Parameter defaultValue: The value to return if the optional is `nil`.
+  /// - Returns: The wrapped value if not `nil`, otherwise `defaultValue`.
+  @inlinable
+  public func or(_ defaultValue: Wrapped) -> Wrapped {
+    switch self {
+    case .some(let value):
+      return value
+    case .none:
+      return defaultValue
+    }
+  }
+  
+  /// Returns the wrapped value if it is not `nil`, otherwise throws the provided `error`.
+  ///
+  /// - Parameter error: The error to throw if the optional is `nil`.
+  /// - Returns: The wrapped value if not `nil`.
+  @inlinable
+  public func orThrow(_ error: @autoclosure () -> Error) throws -> Wrapped {
+    switch self {
+    case .some(let value):
+      return value
+    case .none:
+      throw error()
+    }
+  }
+  
+  /// Executes the given closure with the unwrapped value if the optional is not `nil`.
+  ///
+  /// - Parameter action: A closure that takes the unwrapped value as its argument.
+  @inlinable
+  public func ifLet(_ action: (Wrapped) throws -> Void) rethrows {
+    switch self {
+    case .some(let value):
+      try action(value)
+    case .none:
+      break
+    }
+  }
+  
+  /// Maps the wrapped value using the given closure if the optional is not `nil`, otherwise returns `nil`.
+  ///
+  /// - Parameter transform: A closure that takes the unwrapped value and returns a new optional value.
+  /// - Returns: The result of the `transform` closure if the optional has a value, otherwise `nil`.
+  @inlinable
+  public func mapIfPresent<U>(_ transform: (Wrapped) throws -> U) rethrows -> U? {
+    switch self {
+    case .some(let value):
+      return try transform(value)
+    case .none:
+      return nil
+    }
+  }
+  
+  /// Flat-maps the wrapped value using the given closure if the optional is not `nil`, otherwise returns `nil`.
+  ///
+  /// - Parameter transform: A closure that takes the unwrapped value and returns a new optional value.
+  /// - Returns: The result of the `transform` closure if the optional has a value, otherwise `nil`.
+  @inlinable
+  public func flatMapIfPresent<U>(_ transform: (Wrapped) throws -> U?) rethrows -> U? {
+    switch self {
+    case .some(let value):
+      return try transform(value)
+    case .none:
+      return nil
+    }
+  }
+}
