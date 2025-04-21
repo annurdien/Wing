@@ -5,6 +5,12 @@ import PackageDescription
 
 let package = Package(
   name: "Wing",
+  platforms: [
+    .iOS(.v15),
+    .macOS(.v12),
+    .tvOS(.v15),
+    .watchOS(.v8),
+    ],
   products: [
     .library(name: "Wing", targets: ["Wing"]),
     .library(name: "Wing-Dynamic", type: .dynamic, targets: ["Wing"]),
